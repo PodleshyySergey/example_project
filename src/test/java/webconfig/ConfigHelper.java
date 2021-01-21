@@ -1,4 +1,4 @@
-package Config;
+package webconfig;
 
 import org.aeonbits.owner.ConfigFactory;
 
@@ -8,8 +8,17 @@ public class ConfigHelper {
         return ConfigFactory.newInstance().create(WebConfig.class);
     }
 
+
+    public static Boolean getIsRemote() {
+        return getWebConfig().isRemote();
+    }
+
     public static String getBrowserName() {
         return getWebConfig().browserName();
+    }
+
+    public static String getBrowserVersion() {
+        return getWebConfig().browserVersion();
     }
 
     public static String getBaseUrl() {

@@ -1,11 +1,8 @@
 package Tests;
 
-import Config.ConfigHelper;
-import Config.WebConfig;
+import webconfig.ConfigHelper;
 import com.codeborne.selenide.Configuration;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Test;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
@@ -13,14 +10,14 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class GoogleTests {
 
-    @Test
+//    @Test
     public void searchTest() {
-//        WebConfig webConfig = ConfigFactory.newInstance().create(WebConfig.class);
-//
-//        String browserName = webConfig.browserName();
-//        String baseURL = webConfig.baseURL();
-//        String searchItem = webConfig.searchItem();
-//        String searchSite = webConfig.searchSite();
+
+        if (ConfigHelper.getIsRemote()) {
+            Configuration.remote = "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub/";
+            Configuration.browser = ConfigHelper.getBrowserName();
+            Configuration.browserVersion = ConfigHelper.getBrowserVersion();
+        }
 
         Configuration.browser = ConfigHelper.getBrowserName();
         Configuration.startMaximized=true;
@@ -30,3 +27,4 @@ public class GoogleTests {
     }
 
 }
+

@@ -1,4 +1,4 @@
-package Config;
+package webconfig;
 
 import org.aeonbits.owner.Config;
 
@@ -10,8 +10,14 @@ import org.aeonbits.owner.Config;
 
 public interface WebConfig extends Config {
 
+    @Key("is.remote")
+    Boolean isRemote();
+
     @Key("browser.name")
     String browserName();
+
+    @Key("browser.version")
+    String browserVersion();
 
     @Key("base.url")
     String baseURL();

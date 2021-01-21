@@ -51,4 +51,8 @@ tasks.withType(Test) {
 test {
     useJUnitPlatform()
     systemProperty("browser.name", "chrome")
+    systemProperty("is.remote", "false")
+//    systemProperty("api.base.url", "https://test.google.ru/")
+//    systemProperty("api.base.token", "wertewerfdsgds1244234edfs")
+
 }
